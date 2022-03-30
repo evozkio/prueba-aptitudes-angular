@@ -3,21 +3,21 @@
         <div class="contenedor-Cliente">
             <label>Cleinte:</label>
             <div class="contenedor-input">
-                <input class="form-control nombre" type="text" />
+                <input class="form-control" type="text"  [(ngModel)]='filtro.cliente'/>
                 <button class="btn btn-outline-danger" >X</button>
             </div>
         </div>
         <div class="contenedor-Usuario">
             <label>Usuario:</label>
             <div class="contenedor-input">
-                <input class="form-control nombre" type="text" />
+                <input class="form-control" type="text" [(ngModel)]='filtro.usuario'/>
                 <button class="btn btn-outline-danger">X</button>
             </div>
         </div>
         <div class="contenedor-Referencia">
             <label>Referencia:</label>
             <div class="contenedor-input">
-                <input class="form-control nombre" type="text" />
+                <input class="form-controle" type="text" [(ngModel)]='filtro.referencia'/>
                 <button class="btn btn-outline-danger">X</button>
             </div>
         </div>
@@ -31,7 +31,7 @@
         <div class="contenedor-Tipos">
             <label>Tipos:</label>
             <div class="contenedor-input">
-                <input class="form-control nombre" type="text" />
+                <input class="form-control" type="text" [(ngModel)]='filtro.tipos'/>
                 <button class="btn btn-outline-danger">X</button>
             </div>
         </div>
@@ -89,6 +89,6 @@
         </div>
     </div>
     <div class="contenedor-botonera">
-        <button class="btn btn-outline-danger" class="btn btn-primary">Buscar</button>
+        <button class="btn btn-outline-danger" class="btn btn-primary" (click)="actionBuscar()">Buscar</button>
     </div>
 </div>

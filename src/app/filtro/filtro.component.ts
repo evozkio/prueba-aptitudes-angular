@@ -1,18 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-filtro',
   templateUrl: './filtro.component.html',
   styleUrls: ['./filtro.component.scss']
 })
-export class FiltroComponent implements OnInit {
+export class FiltroComponent{
+  @Output() buscarFiltroHijo = new EventEmitter<any>();
+  filtro = {
+    'cliente': '',
+    'usuario': '',
+    'referencia':'',
+    'tipos':'',
+  };
 
-  
-  constructor() {
-    
+  actionBuscar(){
+      this.buscarFiltroHijo.emit(this.filtro);
   }
-
-  ngOnInit(): void {
-  }
-
 }

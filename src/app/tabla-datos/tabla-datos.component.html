@@ -1,32 +1,50 @@
 <div class="contenedor-principal">
-    <div class="contenedor-tabla">
-        <table class="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col" class="logo">logo</th>
-                <th scope="col" class="producto">PRDUCTO</th>
-                <th scope="col" class="c1">observaciones</th>
-                <th scope="col" class="q">Q.</th>
-                <th scope="col" class="estado">ESTADO</th>
-                <th scope="col" class="fecha">FECHA</th>
-                <th scope="col" class="c2">RUTA</th>
-                <th scope="col" class="cliente">CC</th>
-                <th scope="col" class="cliente">CLIENTE</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let item of productos">
-                <td scope="col" class="logo"><img src={{item.logo}} alt=""> </td>
-                <td scope="col" class="producto">{{item.referencia}}</td>
-                <td scope="col" class="c1"> {{item.observacion}} </td>
-                <td scope="col" class="q"> x{{item.cantidad}} </td>
-                <td scope="col" class="estado"> {{item.estado}} </td>
-                <td scope="col" class="fecha"> {{item.fecha}} </td>
-                <td scope="col" class="c2"> {{item.tipo}} </td>
-                <td scope="col" class="codigo-cliente"> {{item.codigo_cliente}} </td>
-                <td scope="col" class="cliente"> {{item.alias_cliente}} </td>
-              </tr>
-            </tbody>
-          </table>
-    </div>
+  <div class="contenedor-tabla">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col" th>
+          <th scope="col" class="producto">PRDUCTO</th>
+          <th scope="col" class="c1"></th>
+          <th scope="col" class="q">Q.</th>
+          <th scope="col" class="estado">ESTADO</th>
+          <th scope="col" class="fecha">FECHA</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col" class="cliente">CLIENTE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of returnedArray">
+          <td scope="col" class="logo"><img src={{item.logo}} alt=""> </td>
+          <th scope="col" class="producto">{{item.referencia}}</th>
+          <td scope="col" class="observacion">
+            <fa-icon [ngClass]="{'noMostrar': item.observacion != ''}" style="color: blue" [icon]="faInfoCircle">
+            </fa-icon>
+            <fa-icon style="color: blue" popover="{{item.observacion}}" triggers="mouseenter:mouseleave"
+              [ngClass]="{'noMostrar': item.observacion == ''}" [icon]="faInfoCircle"></fa-icon>
+          </td>
+          <td scope="col" class="q"> x{{item.cantidad}} </td>
+          <td scope="col" class="estado">
+            <p [ngClass]="{'verde': item.estado == 'Pendiente','azul': item.estado == 'Entregada','gris': item.estado == 'Desconsolidada'}">
+              {{item.estado}} 
+            </p>
+          </td>
+          <td scope="col" class="fecha"> {{item.fecha}} </td>
+          <td scope="col" class="ruta">
+            <p [ngClass]="{'azul': item.tipo == 'Mesa','verde': item.tipo == 'Ruta'}">
+              {{item.tipo.substr(0,1)}}
+            </p>
+          </td>
+          <td scope="col" class="codigo-cliente"> {{item.codigo_cliente}} </td>
+          <th scope="col" class="cliente"> {{item.alias_cliente}} </th>
+        </tr>
+      </tbody>
+      <tfoot>
+        {{filtrarlista()}}
+        {{filtroPadre|json}}
+        <pagination [totalItems]="filtroArray.length" [itemsPerPage]="30" (pageChanged)="pageChanged($event)"></pagination>
+      </tfoot>
+    </table>
+  </div>
 </div>
