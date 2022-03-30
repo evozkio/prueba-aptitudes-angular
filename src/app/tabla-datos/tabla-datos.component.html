@@ -1,0 +1,32 @@
+<div class="contenedor-principal">
+    <div class="contenedor-tabla">
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col" class="logo">logo</th>
+                <th scope="col" class="producto">PRDUCTO</th>
+                <th scope="col" class="c1">observaciones</th>
+                <th scope="col" class="q">Q.</th>
+                <th scope="col" class="estado">ESTADO</th>
+                <th scope="col" class="fecha">FECHA</th>
+                <th scope="col" class="c2">RUTA</th>
+                <th scope="col" class="cliente">CC</th>
+                <th scope="col" class="cliente">CLIENTE</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of productos">
+                <td scope="col" class="logo"><img src={{item.logo}} alt=""> </td>
+                <td scope="col" class="producto">{{item.referencia}}</td>
+                <td scope="col" class="c1"> {{item.observacion}} </td>
+                <td scope="col" class="q"> x{{item.cantidad}} </td>
+                <td scope="col" class="estado"> {{item.estado}} </td>
+                <td scope="col" class="fecha"> {{item.fecha}} </td>
+                <td scope="col" class="c2"> {{item.tipo}} </td>
+                <td scope="col" class="codigo-cliente"> {{item.codigo_cliente}} </td>
+                <td scope="col" class="cliente"> {{item.alias_cliente}} </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
