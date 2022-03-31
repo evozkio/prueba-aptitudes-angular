@@ -1,7 +1,7 @@
 <div class="contenedor-principal">
-  <app-cabecera class="contenedor-cabecera"></app-cabecera>
+  <app-cabecera class="contenedor-cabecera">  </app-cabecera>
   <div class="contenedor-body">
-    <app-filtro class="contenedor-filtro" (buscarFiltroHijo)="buscarFiltro($event)"></app-filtro>
+    <app-filtro class="contenedor-filtro" (eventofiltrar)="eventoDeBotonerafiltrar($event)"></app-filtro>
     <app-tabla-datos class="contenedor-tabla-datos" [filtroPadre]="filtro"></app-tabla-datos>
   </div>
 </div>

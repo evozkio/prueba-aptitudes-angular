@@ -19,10 +19,10 @@
           <td scope="col" class="logo"><img src={{item.logo}} alt=""> </td>
           <th scope="col" class="producto">{{item.referencia}}</th>
           <td scope="col" class="observacion">
-            <fa-icon [ngClass]="{'noMostrar': item.observacion != ''}" style="color: blue" [icon]="faInfoCircle">
+            <fa-icon [ngClass]="{'noMostrar': item.observacion != ''}" style="color:blue" [icon]="faInfoCircle">
             </fa-icon>
-            <fa-icon style="color: blue" popover="{{item.observacion}}" triggers="mouseenter:mouseleave"
-              [ngClass]="{'noMostrar': item.observacion == ''}" [icon]="faInfoCircle"></fa-icon>
+            <fa-icon style="color: yellowgreen" popover="{{item.observacion}}" placement="right" triggers="mouseenter:mouseleave"
+              [ngClass]="{'noMostrar': item.observacion == ''}" [icon]="faExclamationCircle"></fa-icon>
           </td>
           <td scope="col" class="q"> x{{item.cantidad}} </td>
           <td scope="col" class="estado">
@@ -41,9 +41,9 @@
         </tr>
       </tbody>
       <tfoot>
-        {{filtrarlista()}}
-        {{filtroPadre|json}}
-        <pagination [totalItems]="filtroArray.length" [itemsPerPage]="30" (pageChanged)="pageChanged($event)"></pagination>
+        <div>Lineas: {{filtroPadre.length}}</div>
+        
+        <pagination [totalItems]="filtroPadre.length" [itemsPerPage]="30" (pageChanged)="pageChanged($event)"></pagination>
       </tfoot>
     </table>
   </div>

@@ -3,36 +3,36 @@
         <div class="contenedor-Cliente">
             <label>Cleinte:</label>
             <div class="contenedor-input">
-                <input class="form-control" type="text"  [(ngModel)]='filtro.cliente'/>
-                <button class="btn btn-outline-danger" >X</button>
+                <input class="form-control" type="text"  [(ngModel)]='cliente' />
+                <button class="btn btn-outline-danger" (click)="cliente = ''">X</button>
             </div>
         </div>
         <div class="contenedor-Usuario">
             <label>Usuario:</label>
             <div class="contenedor-input">
-                <input class="form-control" type="text" [(ngModel)]='filtro.usuario'/>
-                <button class="btn btn-outline-danger">X</button>
+                <input class="form-control" type="text" [(ngModel)]='usuario'/>
+                <button class="btn btn-outline-danger" (click)="usuario = ''">X</button>
             </div>
         </div>
         <div class="contenedor-Referencia">
             <label>Referencia:</label>
             <div class="contenedor-input">
-                <input class="form-controle" type="text" [(ngModel)]='filtro.referencia'/>
-                <button class="btn btn-outline-danger">X</button>
+                <input class="form-controle" type="text" [(ngModel)]='referencia'/>
+                <button class="btn btn-outline-danger" (click)="referencia = ''">X</button>
             </div>
         </div>
         <div class="contenedor-Fecha">
             <label>Fecha:</label>
             <div class="contenedor-input">
-                <input type="text"  class="form-control" bsDaterangepicker placement="right">
-                <button class="btn btn-outline-danger">X</button>
+                <input type="text"  class="form-control" bsDaterangepicker [(ngModel)]="fecha" placement="right">
+                <button class="btn btn-outline-danger" (click)="fecha = []">X</button>
             </div>
         </div>
         <div class="contenedor-Tipos">
             <label>Tipos:</label>
             <div class="contenedor-input">
-                <input class="form-control" type="text" [(ngModel)]='filtro.tipos'/>
-                <button class="btn btn-outline-danger">X</button>
+                <input class="form-control" type="text" [(ngModel)]='tipo'/>
+                <button class="btn btn-outline-danger" (click)="tipo = ''">X</button>
             </div>
         </div>
         <div class="contenedor-estados">
@@ -40,55 +40,62 @@
             <div class="contenedor-input-estados">
                 <div class="contenedor-checkbox">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" [(ngModel)]="pendiente" id="flexCheckDefault">
                         <label class="form-check-label" for="flexCheckDefault">
                           Pendiente
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" [(ngModel)]="recogiendo" id="flexCheckDefault">
                         <label class="form-check-label" for="flexCheckDefault">
                           Recogiendo
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" [(ngModel)]="recogida" id="flexCheckDefault">
                         <label class="form-check-label" for="flexCheckDefault">
                           Recogida
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" [(ngModel)]="desconsolidando" id="flexCheckDefault">
                         <label class="form-check-label" for="flexCheckDefault">
                           Desconsolidando
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" [(ngModel)]="desconsolidada" id="flexCheckDefault">
                         <label class="form-check-label" for="flexCheckDefault">
                             Desconsolidada
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" [(ngModel)]="entregada" id="flexCheckDefault">
                         <label class="form-check-label" for="flexCheckDefault">
                           Entregada
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" [(ngModel)]="incidencia" id="flexCheckDefault">
                         <label class="form-check-label" for="flexCheckDefault">
                           Incidencia
                         </label>
                     </div>
                 </div>
                 <div>
-                    <button class="btn btn-outline-danger">X</button>
+                    <button class="btn btn-outline-danger" (click)="incidencia = false;entregada = false; desconsolidada = false; desconsolidando = false; recogida =false; recogiendo = false; pendiente =false;">X</button>
                 </div>
             </div>
         </div>
+        {{fecha[0]}}
+        <br>
+        {{fecha[1]}}
+        <br>
+        {{fecha}}
     </div>
     <div class="contenedor-botonera">
         <button class="btn btn-outline-danger" class="btn btn-primary" (click)="actionBuscar()">Buscar</button>
     </div>
+    
+    
 </div>

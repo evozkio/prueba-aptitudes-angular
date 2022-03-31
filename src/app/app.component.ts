@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 
 @Component({
@@ -6,21 +6,12 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
-  filtro:any;
-
-  ngOnInit(): void {
-    this.filtro = {
-      'cliente': '',
-      'usuario': '',
-      'referencia':'',
-      'tipos':'',
-    };
-  }
+export class AppComponent {
+  filtro:any[]= [];
 
 
-  buscarFiltro(filtroHijo: any) {
-    this.filtro = Object.assign({},filtroHijo);
+  eventoDeBotonerafiltrar(datos:any):void{
+    this.filtro = datos;
   }
   
 }
