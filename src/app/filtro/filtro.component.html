@@ -1,7 +1,7 @@
 <div class="contenedor-principal">
     <div class="contenedor-selector-filtro">
         <div class="contenedor-Cliente">
-            <label>Cleinte:</label>
+            <label>Cliente:</label>
             <div class="contenedor-input">
                 <input class="form-control" type="text"  [(ngModel)]='cliente' />
                 <button class="btn btn-outline-danger" (click)="cliente = ''">X</button>
@@ -17,7 +17,7 @@
         <div class="contenedor-Referencia">
             <label>Referencia:</label>
             <div class="contenedor-input">
-                <input class="form-controle" type="text" [(ngModel)]='referencia'/>
+                <input class="form-control" type="text" [(ngModel)]='referencia'/>
                 <button class="btn btn-outline-danger" (click)="referencia = ''">X</button>
             </div>
         </div>
@@ -40,44 +40,44 @@
             <div class="contenedor-input-estados">
                 <div class="contenedor-checkbox">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" [(ngModel)]="pendiente" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" [(ngModel)]="pendiente">
+                        <label class="form-check-label">
                           Pendiente
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" [(ngModel)]="recogiendo" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" [(ngModel)]="recogiendo" >
+                        <label class="form-check-label" >
                           Recogiendo
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" [(ngModel)]="recogida" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" [(ngModel)]="recogida">
+                        <label class="form-check-label" >
                           Recogida
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" [(ngModel)]="desconsolidando" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" [(ngModel)]="desconsolidando">
+                        <label class="form-check-label" >
                           Desconsolidando
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" [(ngModel)]="desconsolidada" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" [(ngModel)]="desconsolidada">
+                        <label class="form-check-label">
                             Desconsolidada
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" [(ngModel)]="entregada" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" [(ngModel)]="entregada">
+                        <label class="form-check-label">
                           Entregada
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" [(ngModel)]="incidencia" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" [(ngModel)]="incidencia" >
+                        <label class="form-check-label">
                           Incidencia
                         </label>
                     </div>
@@ -87,11 +87,6 @@
                 </div>
             </div>
         </div>
-        {{fecha[0]}}
-        <br>
-        {{fecha[1]}}
-        <br>
-        {{fecha}}
     </div>
     <div class="contenedor-botonera">
         <button class="btn btn-outline-danger" class="btn btn-primary" (click)="actionBuscar()">Buscar</button>

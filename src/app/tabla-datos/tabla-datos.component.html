@@ -3,47 +3,51 @@
     <table class="table table-hover">
       <thead>
         <tr>
-          <th scope="col" th>
-          <th scope="col" class="producto">PRDUCTO</th>
-          <th scope="col" class="c1"></th>
-          <th scope="col" class="q">Q.</th>
+          <th scope="col" class="logo" th>
+          <th scope="col" class="producto">PRODUCTO</th>
+          <th scope="col" class="observacion"></th>
+          <th scope="col" class="cantidad">Q.</th>
           <th scope="col" class="estado">ESTADO</th>
           <th scope="col" class="fecha">FECHA</th>
-          <th scope="col"></th>
-          <th scope="col"></th>
+          <th scope="col" class="ruta"></th>
+          <th scope="col" class="codigo-cliente"></th>
           <th scope="col" class="cliente">CLIENTE</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of returnedArray">
-          <td scope="col" class="logo"><img src={{item.logo}} alt=""> </td>
-          <th scope="col" class="producto">{{item.referencia}}</th>
+        <tr class="datos" *ngFor="let item of filtroPadre | slice:inicio():fin()">
+          <td scope="col" class="logo"><img src={{logo(item)}} alt=""> </td>
+          <th scope="col" class="producto">{{referencia(item)}}</th>
           <td scope="col" class="observacion">
-            <fa-icon [ngClass]="{'noMostrar': item.observacion != ''}" style="color:blue" [icon]="faInfoCircle">
+            <fa-icon [ngClass]="{'noMostrar': observacion(item) != ''}" style="color:blue" [icon]="faInfoCircle">
             </fa-icon>
-            <fa-icon style="color: yellowgreen" popover="{{item.observacion}}" placement="right" triggers="mouseenter:mouseleave"
-              [ngClass]="{'noMostrar': item.observacion == ''}" [icon]="faExclamationCircle"></fa-icon>
+            <fa-icon style="color: yellowgreen" popover="{{observacion(item)}}" placement="right" triggers="mouseenter:mouseleave"
+              [ngClass]="{'noMostrar': observacion(item) == ''}" [icon]="faExclamationCircle"></fa-icon>
           </td>
-          <td scope="col" class="q"> x{{item.cantidad}} </td>
+          <td scope="col" class="cantidad"><span class="mensajeCantidad"> x{{cantidad(item)}}</span> </td>
           <td scope="col" class="estado">
-            <p [ngClass]="{'verde': item.estado == 'Pendiente','azul': item.estado == 'Entregada','gris': item.estado == 'Desconsolidada'}">
-              {{item.estado}} 
+            <p [ngClass]="{'negro': estado(item) == 'Pendiente','gris': estado(item) == 'Entregada','azul': estado(item) == 'Desconsolidada'}">
+              {{estado(item)}} 
             </p>
           </td>
-          <td scope="col" class="fecha"> {{item.fecha}} </td>
+          <td scope="col" class="fecha">
+            <span class="hora">{{calcularHora(item)}}</span> 
+            <span class="dia">{{calcularDia(item)}}</span> 
+            <span class="mes">{{calcularMes(item)}}</span> 
+            <span class="anio">{{calcularAnio(item)}}</span> 
+          </td>
           <td scope="col" class="ruta">
-            <p [ngClass]="{'azul': item.tipo == 'Mesa','verde': item.tipo == 'Ruta'}">
-              {{item.tipo.substr(0,1)}}
+            <p [ngClass]="{'azul': tipo(item) == 'Mesa','verde': tipo(item) == 'Ruta'}">
+              {{tipoPrimeraLetra(item)}}
             </p>
           </td>
-          <td scope="col" class="codigo-cliente"> {{item.codigo_cliente}} </td>
-          <th scope="col" class="cliente"> {{item.alias_cliente}} </th>
+          <td scope="col" class="codigo-cliente"> {{codigoCliente(item)}} </td>
+          <th scope="col" class="cliente"> {{aliasCliente(item)}} </th>
         </tr>
       </tbody>
       <tfoot>
         <div>Lineas: {{filtroPadre.length}}</div>
-        
-        <pagination [totalItems]="filtroPadre.length" [itemsPerPage]="30" (pageChanged)="pageChanged($event)"></pagination>
+        <pagination class="paginacion" [totalItems]="filtroPadre.length" [(ngModel)]="currentPage" [itemsPerPage]="31" (pageChanged)="pageChanged($event)"></pagination>
       </tfoot>
     </table>
   </div>

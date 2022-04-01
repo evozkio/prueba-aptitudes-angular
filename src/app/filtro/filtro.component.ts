@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {faSearch} from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'app-filtro',
@@ -20,7 +21,7 @@ export class FiltroComponent implements OnInit{
   entregada:boolean = false;
   incidencia:boolean = false;
   fecha:Date[] = [];
-  
+  faSearch=faSearch;
   
   @Output() eventofiltrar:EventEmitter<any> = new EventEmitter;
 
