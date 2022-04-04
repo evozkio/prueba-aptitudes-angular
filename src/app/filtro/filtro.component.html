@@ -24,7 +24,7 @@
         <div class="contenedor-Fecha">
             <label>Fecha:</label>
             <div class="contenedor-input input-group">
-                <input type="text"  class="form-control" bsDaterangepicker [(ngModel)]="fecha" placement="right">
+                <input type="text"  class="form-control" bsDaterangepicker [(ngModel)]="fecha" placement="right" [bsConfig]="{ containerClass: 'theme-dark-blue' }">
                 <button class="btn btn-outline-danger  input-group-append" (click)="fecha = []"><fa-icon  [icon]="faTrash"></fa-icon></button>
             </div>
         </div>

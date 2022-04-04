@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import {faExclamationCircle,faInfoCircle} from '@fortawesome/free-solid-svg-icons'
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 
@@ -7,18 +7,30 @@ import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 @Component({
   selector: 'app-tabla-datos',
   templateUrl: './tabla-datos.component.html',
-  styleUrls: ['./tabla-datos.component.scss']
+  styleUrls: ['./tabla-datos.component.scss'],
+  host: {
+    '(window:resize)': 'onResize($event)'
+  }
 })
 export class TablaDatosComponent implements OnInit{
 
   faExclamationCircle =faExclamationCircle;
   faInfoCircle = faInfoCircle;
   returnedArray?: any[];
-  currentPage:any = 1;
+  currentPage:number = 1;
   @Input() filtroPadre:any;
+  cuerpoTabla:any;
+  numeroElementos:number = 31;
  
   ngOnInit(): void {
-      this.returnedArray =this.filtroPadre.slice(0, 30);
+    this.cuerpoTabla = document.getElementById("cuerpo-tabla");
+    this.numeroElementos = this.cuerpoTabla.offsetHeight/30; 
+  }
+
+  @HostListener('window:resize', ['$event'])
+    onResize(event:any) {
+      this.currentPage = 1;
+      this.numeroElementos = this.cuerpoTabla.offsetHeight/30; 
   }
 
   calcularHora(item:any):string{
@@ -118,10 +130,15 @@ export class TablaDatosComponent implements OnInit{
   }
 
   inicio():number{
-    return (this.currentPage-1)*31;
+    return (this.currentPage-1)*this.numeroElementos;
   }
 
   fin():number{
-    return ((this.currentPage-1)*31)+31;
+    return ((this.currentPage-1)*this.numeroElementos)+this.numeroElementos;
   }
+
+  numeroPorPagina():number{
+    return this.numeroElementos;
+  }
+  
 }

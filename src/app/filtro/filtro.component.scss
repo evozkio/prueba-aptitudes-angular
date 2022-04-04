@@ -11,8 +11,10 @@
         height: 100%;
         display: flex;
         flex-direction: column;
-        padding: 0 5px ;
+        padding: 0 5px;
         gap: 5px;
+        
+
         .contenedor-input-estados{
             display: flex;
             justify-content: space-between;
@@ -22,6 +24,19 @@
                 padding: 5px;
             }
         }
+        input.form-control{
+            box-shadow: none;
+        }
+     
+        .btn-outline-danger{
+            background-color: white;
+            box-shadow: none;       
+        }
+        .btn-outline-danger:hover{
+            background-color: red;
+        }
+
+
     }
     .contenedor-botonera{
         display: flex;

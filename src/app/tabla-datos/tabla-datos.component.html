@@ -14,7 +14,7 @@
           <th scope="col" class="cliente">CLIENTE</th>
         </tr>
       </thead>
-      <tbody id="cuerpotabla">
+      <tbody id="cuerpo-tabla">
         <tr class="datos" *ngFor="let item of filtroPadre | slice:inicio():fin()">
           <td scope="col" class="logo"><img src={{logo(item)}} alt=""> </td>
           <th scope="col" class="producto">{{referencia(item)}}</th>
@@ -49,7 +49,7 @@
         <div>Lineas: {{filtroPadre.length}}</div>
         <pagination class="paginacion" [totalItems]="filtroPadre.length" [boundaryLinks]="true"  
           previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;" [(ngModel)]="currentPage" 
-          [itemsPerPage]="31" (pageChanged)="pageChanged($event)">
+          [itemsPerPage]="numeroPorPagina()" (pageChanged)="pageChanged($event)">
         </pagination>
       </tfoot>
     </table>
