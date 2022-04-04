@@ -2,37 +2,37 @@
     <div class="contenedor-selector-filtro">
         <div class="contenedor-Cliente">
             <label>Cliente:</label>
-            <div class="contenedor-input">
+            <div class="contenedor-input input-group">
                 <input class="form-control" type="text"  [(ngModel)]='cliente' />
-                <button class="btn btn-outline-danger" (click)="cliente = ''">X</button>
+                <button class="btn btn-outline-danger input-group-append" (click)="cliente = ''"><fa-icon  [icon]="faTrash"></fa-icon></button>
             </div>
         </div>
         <div class="contenedor-Usuario">
             <label>Usuario:</label>
-            <div class="contenedor-input">
+            <div class="contenedor-input input-group">
                 <input class="form-control" type="text" [(ngModel)]='usuario'/>
-                <button class="btn btn-outline-danger" (click)="usuario = ''">X</button>
+                <button class="btn btn-outline-danger  input-group-append" (click)="usuario = ''"><fa-icon  [icon]="faTrash"></fa-icon></button>
             </div>
         </div>
         <div class="contenedor-Referencia">
             <label>Referencia:</label>
-            <div class="contenedor-input">
+            <div class="contenedor-input input-group">
                 <input class="form-control" type="text" [(ngModel)]='referencia'/>
-                <button class="btn btn-outline-danger" (click)="referencia = ''">X</button>
+                <button class="btn btn-outline-danger  input-group-append" (click)="referencia = ''"><fa-icon  [icon]="faTrash"></fa-icon></button>
             </div>
         </div>
         <div class="contenedor-Fecha">
             <label>Fecha:</label>
-            <div class="contenedor-input">
+            <div class="contenedor-input input-group">
                 <input type="text"  class="form-control" bsDaterangepicker [(ngModel)]="fecha" placement="right">
-                <button class="btn btn-outline-danger" (click)="fecha = []">X</button>
+                <button class="btn btn-outline-danger  input-group-append" (click)="fecha = []"><fa-icon  [icon]="faTrash"></fa-icon></button>
             </div>
         </div>
         <div class="contenedor-Tipos">
             <label>Tipos:</label>
-            <div class="contenedor-input">
+            <div class="contenedor-input input-group">
                 <input class="form-control" type="text" [(ngModel)]='tipo'/>
-                <button class="btn btn-outline-danger" (click)="tipo = ''">X</button>
+                <button class="btn btn-outline-danger  input-group-append" (click)="tipo = ''"><fa-icon  [icon]="faTrash"></fa-icon></button>
             </div>
         </div>
         <div class="contenedor-estados">
@@ -40,56 +40,60 @@
             <div class="contenedor-input-estados">
                 <div class="contenedor-checkbox">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" [(ngModel)]="pendiente">
-                        <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" [(ngModel)]="pendiente" id="pendiente">
+                        <label class="form-check-label" for="pendiente">
                           Pendiente
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" [(ngModel)]="recogiendo" >
-                        <label class="form-check-label" >
+                        <input class="form-check-input" type="checkbox" [(ngModel)]="recogiendo" id="recogiendo">
+                        <label class="form-check-label" for="recogiendo">
                           Recogiendo
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" [(ngModel)]="recogida">
-                        <label class="form-check-label" >
+                        <input class="form-check-input" type="checkbox" [(ngModel)]="recogida" id="recogida">
+                        <label class="form-check-label" for="recogida">
                           Recogida
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" [(ngModel)]="desconsolidando">
-                        <label class="form-check-label" >
+                        <input class="form-check-input" type="checkbox" [(ngModel)]="desconsolidando" id="desconsolidando">
+                        <label class="form-check-label" for="desconsolidando">
                           Desconsolidando
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" [(ngModel)]="desconsolidada">
-                        <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" [(ngModel)]="desconsolidada" id="desconsolidada"> 
+                        <label class="form-check-label" for="desconsolidada">
                             Desconsolidada
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" [(ngModel)]="entregada">
-                        <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" [(ngModel)]="entregada" id="entrega">
+                        <label class="form-check-label" for="entrega">
                           Entregada
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" [(ngModel)]="incidencia" >
-                        <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" [(ngModel)]="incidencia" id="incidencia">
+                        <label class="form-check-label" for="incidencia">
                           Incidencia
                         </label>
                     </div>
                 </div>
                 <div>
-                    <button class="btn btn-outline-danger" (click)="incidencia = false;entregada = false; desconsolidada = false; desconsolidando = false; recogida =false; recogiendo = false; pendiente =false;">X</button>
+                    <button class="btn btn-outline-danger" (click)="incidencia = false;entregada = false; desconsolidada = false; desconsolidando = false; recogida =false; recogiendo = false; pendiente =false;"><fa-icon  [icon]="faTrash"></fa-icon></button>
                 </div>
             </div>
         </div>
     </div>
     <div class="contenedor-botonera">
-        <button class="btn btn-outline-danger" class="btn btn-primary" (click)="actionBuscar()">Buscar</button>
+        <button class="btn btn-outline-danger" class="btn btn-primary" (click)="actionBuscar()"> 
+            <fa-icon  [icon]="faSearch">
+            </fa-icon>
+            Buscar
+        </button>
     </div>
     
     

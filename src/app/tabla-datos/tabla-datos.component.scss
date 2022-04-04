@@ -21,16 +21,10 @@
             }
             thead{
                 border-bottom: 2px solid green;
-                tr{
-                    background-color: yellow;
-                }
             }
             tbody{
                 height: 100%;
                 overflow-y: auto;
-                tr{
-                    background-color: red;
-                }
             }
             tfoot{
                 border-top: 1px solid rgb(0, 174, 255) ;
@@ -44,7 +38,6 @@
 
                 .paginacion{
                     height: 100%;
-                    background-color: aqua;
                 }
             
                 div{
@@ -52,7 +45,7 @@
                 }
             }
             .datos:hover{
-                background-color: yellow;
+                background-color: rgba(253, 106, 106, 0.836);
             }
             tr{
                 display: grid;
@@ -70,15 +63,15 @@
                     p{
                         border-radius: 5px;
                         font-size: 15px;
-                        padding: 0 2px;
+                        padding: 0 8px;
                         display: flex;
                         justify-content: center;
-                        // background-color: red;
                         color: white;
                     }
                 }
                 .logo{
                     img{
+                        filter: drop-shadow(0 0 2px rgb(249, 250, 249));
                         width: 50px;
                     }
                 }

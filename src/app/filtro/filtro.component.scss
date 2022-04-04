@@ -13,12 +13,6 @@
         flex-direction: column;
         padding: 0 5px ;
         gap: 5px;
-        .contenedor-input{
-            display: grid;
-            grid-template-columns: 1fr 50px;
-         
-            gap: 5px;
-        }
         .contenedor-input-estados{
             display: flex;
             justify-content: space-between;

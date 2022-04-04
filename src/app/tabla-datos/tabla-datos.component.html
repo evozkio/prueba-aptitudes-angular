@@ -14,15 +14,15 @@
           <th scope="col" class="cliente">CLIENTE</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="cuerpotabla">
         <tr class="datos" *ngFor="let item of filtroPadre | slice:inicio():fin()">
           <td scope="col" class="logo"><img src={{logo(item)}} alt=""> </td>
           <th scope="col" class="producto">{{referencia(item)}}</th>
           <td scope="col" class="observacion">
-            <fa-icon [ngClass]="{'noMostrar': observacion(item) != ''}" style="color:blue" [icon]="faInfoCircle">
-            </fa-icon>
-            <fa-icon style="color: yellowgreen" popover="{{observacion(item)}}" placement="right" triggers="mouseenter:mouseleave"
+            <fa-icon style="color: yellowgreen;" popover="{{observacion(item)}}" placement="right" triggers="mouseenter:mouseleave"
               [ngClass]="{'noMostrar': observacion(item) == ''}" [icon]="faExclamationCircle"></fa-icon>
+            <fa-icon [ngClass]="{'noMostrar': observacion(item) != ''}" style="color:blue " [icon]="faInfoCircle">
+            </fa-icon>
           </td>
           <td scope="col" class="cantidad"><span class="mensajeCantidad"> x{{cantidad(item)}}</span> </td>
           <td scope="col" class="estado">
@@ -47,7 +47,10 @@
       </tbody>
       <tfoot>
         <div>Lineas: {{filtroPadre.length}}</div>
-        <pagination class="paginacion" [totalItems]="filtroPadre.length" [(ngModel)]="currentPage" [itemsPerPage]="31" (pageChanged)="pageChanged($event)"></pagination>
+        <pagination class="paginacion" [totalItems]="filtroPadre.length" [boundaryLinks]="true"  
+          previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;" [(ngModel)]="currentPage" 
+          [itemsPerPage]="31" (pageChanged)="pageChanged($event)">
+        </pagination>
       </tfoot>
     </table>
   </div>

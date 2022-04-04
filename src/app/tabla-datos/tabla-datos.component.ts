@@ -10,7 +10,7 @@ import { PageChangedEvent } from 'ngx-bootstrap/pagination';
   styleUrls: ['./tabla-datos.component.scss']
 })
 export class TablaDatosComponent implements OnInit{
-  
+
   faExclamationCircle =faExclamationCircle;
   faInfoCircle = faInfoCircle;
   returnedArray?: any[];
