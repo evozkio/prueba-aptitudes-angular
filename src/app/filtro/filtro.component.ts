@@ -26,6 +26,7 @@ export class FiltroComponent implements OnInit{
   bsConfig:any;
   
   @Output() eventofiltrar:EventEmitter<any> = new EventEmitter;
+  @Output() eventoPulsarBoton:EventEmitter<any> = new EventEmitter;
 
 
   ngOnInit(): void {
@@ -37,6 +38,7 @@ export class FiltroComponent implements OnInit{
   actionBuscar(){
     this.filtrarlista();
     this.eventofiltrar.emit(this.filtroProductos);
+    this.eventoPulsarBoton.emit();
   }
 
   ordenarListaPorFecha(lista:any[]){

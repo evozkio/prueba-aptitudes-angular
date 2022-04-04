@@ -49,7 +49,7 @@
         <div>Lineas: {{filtroPadre.length}}</div>
         <pagination class="paginacion" [totalItems]="filtroPadre.length" [boundaryLinks]="true"  
           previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;" [(ngModel)]="currentPage" 
-          [itemsPerPage]="numeroPorPagina()" (pageChanged)="pageChanged($event)">
+          [itemsPerPage]="numeroPorPagina()">
         </pagination>
       </tfoot>
     </table>

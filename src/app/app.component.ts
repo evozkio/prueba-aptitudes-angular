@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 
 @Component({
@@ -6,12 +6,19 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent {
+  
   filtro:any[]= [];
+  paginaActual:number = 1;
+  
 
-
-  eventoDeBotonerafiltrar(datos:any):void{
+  eventofiltrar(datos:any):void{
     this.filtro = datos;
+  }
+
+  async eventoDeBotonerafiltrar():Promise<void>{
+    this.paginaActual = 1;
   }
   
 }

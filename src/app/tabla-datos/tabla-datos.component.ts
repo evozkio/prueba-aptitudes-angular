@@ -16,21 +16,24 @@ export class TablaDatosComponent implements OnInit{
 
   faExclamationCircle =faExclamationCircle;
   faInfoCircle = faInfoCircle;
-  returnedArray?: any[];
-  currentPage:number = 1;
+  @Input() currentPage:any = 1;
   @Input() filtroPadre:any;
   cuerpoTabla:any;
   numeroElementos:number = 31;
  
   ngOnInit(): void {
     this.cuerpoTabla = document.getElementById("cuerpo-tabla");
-    this.numeroElementos = this.cuerpoTabla.offsetHeight/30; 
+    this.numeroElementos = (this.cuerpoTabla.offsetHeight-5)/30;
   }
+
+
 
   @HostListener('window:resize', ['$event'])
     onResize(event:any) {
-      this.currentPage = 1;
-      this.numeroElementos = this.cuerpoTabla.offsetHeight/30; 
+      setTimeout(() => {
+        this.currentPage = 1;
+      }, 1500);
+      this.numeroElementos = (this.cuerpoTabla.offsetHeight-5)/30; 
   }
 
   calcularHora(item:any):string{
@@ -123,11 +126,6 @@ export class TablaDatosComponent implements OnInit{
     return item.tipo.substring(0,1);
   }
 
-  pageChanged(event: PageChangedEvent): void {
-    const startItem = (event.page - 1) * event.itemsPerPage;
-    const endItem = event.page * event.itemsPerPage;
-    this.returnedArray = this.filtroPadre.slice(startItem, endItem);
-  }
 
   inicio():number{
     return (this.currentPage-1)*this.numeroElementos;
@@ -141,4 +139,5 @@ export class TablaDatosComponent implements OnInit{
     return this.numeroElementos;
   }
   
+
 }
