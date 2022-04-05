@@ -124,13 +124,12 @@ export class FiltroComponent implements OnInit{
     return false
   }
 
-  filtrarPorFecha(fechaString:string):boolean{
-    let fechaDate:Date = new Date(fechaString);
+  filtrarPorFecha(fechaProducto:Date):boolean{
     let validar:boolean = false;
     if(this.fecha.length == 0){
       return true;
     }else{
-      if(this.fecha[1] >= fechaDate && this.fecha[0] <= fechaDate){
+      if(this.fecha[1] >= fechaProducto && this.fecha[0] <= fechaProducto){
         validar = true;
       }
     }

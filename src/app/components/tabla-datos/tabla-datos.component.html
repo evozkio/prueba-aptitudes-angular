@@ -31,10 +31,10 @@
             </p>
           </td>
           <td scope="col" class="fecha">
-            <span class="hora">{{calcularHora(item)}}</span> 
-            <span class="dia">{{calcularDia(item)}}</span> 
-            <span class="mes">{{calcularMes(item)}}</span> 
-            <span class="anio">{{calcularAnio(item)}}</span> 
+            <span class="hora">{{item.calcularHora()}}</span> 
+            <span class="dia">{{item.calcularDia()}}</span> 
+            <span class="mes">{{item.calcularMes()}}</span> 
+            <span class="anio">{{item.calcularAnio()}}</span> 
           </td>
           <td scope="col" class="ruta">
             <p [ngClass]="{'azul': item.tipo == 'Mesa','verde': item.tipo == 'Ruta'}">

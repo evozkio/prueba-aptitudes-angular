@@ -46,62 +46,6 @@ export class TablaDatosComponent implements OnInit{
     setTimeout(() => this.currentPage = pag, 100);
   }
 
-  calcularHora(item:any):string{
-    return item.fecha.slice(11,16);
-  }
-
-  calcularDia(item:any):string{
-    return item.fecha.slice(8,11);
-  }
-  calcularMes(item:any):string{
-    let cadena:string = item.fecha.slice(5,7);
-    switch (cadena) {
-      case '01':
-        cadena = 'ene.';
-        break;
-      case '02':
-        cadena = 'feb.';
-        break;
-      case '03':
-        cadena = 'mar.';
-        break;
-      case '04':
-        cadena = 'abr.';
-        break;
-      case '05':
-        cadena = 'may.';
-        break;
-      case '06':
-        cadena = 'jun.';
-        break;
-      case '07':
-        cadena = 'jul.';
-        break;
-      case '08':
-        cadena = 'ago.';
-        break;
-      case '09':
-        cadena = 'sep.';
-        break;
-      case '10':
-        cadena = 'oct.';
-        break;
-      case '11':
-        cadena = 'nov.';
-        break;
-      case '12':
-        cadena = 'dic.';
-        break;
-      default:
-        break;
-    }
-    return cadena;
-  }
-  calcularAnio(item:any):string{
-    return item.fecha.slice(2,4);
-  }
-
-
   numeroPorPagina():number{
     return this.numeroElementos;
   }
