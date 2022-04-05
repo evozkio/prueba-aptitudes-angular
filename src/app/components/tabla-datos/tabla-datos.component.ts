@@ -1,6 +1,7 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import {faExclamationCircle,faInfoCircle} from '@fortawesome/free-solid-svg-icons'
-import { PageChangedEvent } from 'ngx-bootstrap/pagination';
+import { Tarea } from 'src/app/models/tarea.module';
+
 
 
 
@@ -14,26 +15,35 @@ import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 })
 export class TablaDatosComponent implements OnInit{
 
-  faExclamationCircle =faExclamationCircle;
+  faExclamationCircle = faExclamationCircle;
   faInfoCircle = faInfoCircle;
-  @Input() currentPage:any = 1;
-  @Input() filtroPadre:any;
+  @Input() currentPage:any;
+  @Input()filtroPadre: Tarea[] = [];
   cuerpoTabla:any;
   numeroElementos:number = 31;
  
   ngOnInit(): void {
-    this.cuerpoTabla = document.getElementById("cuerpo-tabla");
-    this.numeroElementos = (this.cuerpoTabla.offsetHeight-5)/30;
+    this.recalcularFilas();
   }
-
-
 
   @HostListener('window:resize', ['$event'])
     onResize(event:any) {
-      setTimeout(() => {
-        this.currentPage = 1;
-      }, 1500);
-      this.numeroElementos = (this.cuerpoTabla.offsetHeight-5)/30; 
+      this.recalcularFilas();
+  }
+
+  recalcularFilas(){
+    let alto_div = 0;
+    let div_tareas = document.getElementById("cuerpo-tabla");
+    if(div_tareas!==null){
+      alto_div = div_tareas.offsetHeight;
+    }
+    let num_pag = Math.floor(alto_div/30);
+    this.cambiarPaginacion(1, num_pag);
+  }
+
+  cambiarPaginacion(pag: number, items:number){
+    this.numeroElementos = items;
+    setTimeout(() => this.currentPage = pag, 100);
   }
 
   calcularHora(item:any):string{
@@ -90,50 +100,7 @@ export class TablaDatosComponent implements OnInit{
   calcularAnio(item:any):string{
     return item.fecha.slice(2,4);
   }
-  
-  logo(item:any):string{
-    return item.logo;
-  }
-  referencia(item:any):string{
-    return item.referencia;
-  }
 
-  observacion(item:any):string{
-    return item.observacion;
-  }
-
-  cantidad(item:any):string{
-    return item.cantidad;
-  }
-
-  estado(item:any):string{
-    return item.estado;
-  }
-
-  tipo(item:any):string{
-    return item.tipo;
-  }
-
-  codigoCliente(item:any):string{
-    return item.codigo_cliente;
-  }
-
-  aliasCliente(item:any):string{
-    return item.alias_cliente;
-  }
-
-  tipoPrimeraLetra(item:any){
-    return item.tipo.substring(0,1);
-  }
-
-
-  inicio():number{
-    return (this.currentPage-1)*this.numeroElementos;
-  }
-
-  fin():number{
-    return ((this.currentPage-1)*this.numeroElementos)+this.numeroElementos;
-  }
 
   numeroPorPagina():number{
     return this.numeroElementos;

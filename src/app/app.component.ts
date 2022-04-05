@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Tarea } from './models/tarea.module';
 
 
 @Component({
@@ -9,11 +10,15 @@ import { Component, OnInit } from '@angular/core';
 
 export class AppComponent {
   
-  filtro:any[]= [];
-  paginaActual:number = 1;
+  filtro:Tarea[]= [];
+  public paginaActual:number;
+
+  constructor(){
+    this.paginaActual= 1;
+  }
   
 
-  eventofiltrar(datos:any):void{
+  eventofiltrar(datos:Tarea[]):void{
     this.filtro = datos;
   }
 

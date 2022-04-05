@@ -15,19 +15,19 @@
         </tr>
       </thead>
       <tbody id="cuerpo-tabla">
-        <tr class="datos" *ngFor="let item of filtroPadre | slice:inicio():fin()">
-          <td scope="col" class="logo"><img src={{logo(item)}} alt=""> </td>
-          <th scope="col" class="producto">{{referencia(item)}}</th>
+        <tr class="datos" *ngFor="let item of filtroPadre | slice: (this.currentPage-1)*this.numeroElementos : ((this.currentPage-1)*this.numeroElementos)+this.numeroElementos">
+          <td scope="col" class="logo"><img src={{item.logo}} alt=""> </td>
+          <th scope="col" class="producto">{{item.referencia}}</th>
           <td scope="col" class="observacion">
-            <fa-icon style="color: yellowgreen;" popover="{{observacion(item)}}" placement="right" triggers="mouseenter:mouseleave"
-              [ngClass]="{'noMostrar': observacion(item) == ''}" [icon]="faExclamationCircle"></fa-icon>
-            <fa-icon [ngClass]="{'noMostrar': observacion(item) != ''}" style="color:blue " [icon]="faInfoCircle">
+            <fa-icon style="color: yellowgreen;" popover="{{item.observacion}}" placement="right" triggers="mouseenter:mouseleave"
+              [ngClass]="{'noMostrar': item.observacion == ''}" [icon]="faExclamationCircle"></fa-icon>
+            <fa-icon [ngClass]="{'noMostrar': item.observacion != ''}" style="color:blue " [icon]="faInfoCircle">
             </fa-icon>
           </td>
-          <td scope="col" class="cantidad"><span class="mensajeCantidad"> x{{cantidad(item)}}</span> </td>
+          <td scope="col" class="cantidad"><span class="mensajeCantidad"> x{{item.cantidad}}</span> </td>
           <td scope="col" class="estado">
-            <p [ngClass]="{'negro': estado(item) == 'Pendiente','gris': estado(item) == 'Entregada','azul': estado(item) == 'Desconsolidada'}">
-              {{estado(item)}} 
+            <p [ngClass]="{'negro': item.estado == 'Pendiente','gris': item.estado == 'Entregada','azul': item.estado == 'Desconsolidada'}">
+              {{item.estado}} 
             </p>
           </td>
           <td scope="col" class="fecha">
@@ -37,19 +37,20 @@
             <span class="anio">{{calcularAnio(item)}}</span> 
           </td>
           <td scope="col" class="ruta">
-            <p [ngClass]="{'azul': tipo(item) == 'Mesa','verde': tipo(item) == 'Ruta'}">
-              {{tipoPrimeraLetra(item)}}
+            <p [ngClass]="{'azul': item.tipo == 'Mesa','verde': item.tipo == 'Ruta'}">
+              {{item.tipo.slice(0,1)}}
             </p>
           </td>
-          <td scope="col" class="codigo-cliente"> {{codigoCliente(item)}} </td>
-          <th scope="col" class="cliente"> {{aliasCliente(item)}} </th>
+          <td scope="col" class="codigo-cliente"> {{item.codigo_cliente}} </td>
+          <th scope="col" class="cliente"> {{item.alias_cliente}} </th>
         </tr>
       </tbody>
       <tfoot>
         <div>Lineas: {{filtroPadre.length}}</div>
         <pagination class="paginacion" [totalItems]="filtroPadre.length" [boundaryLinks]="true"  
           previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;" [(ngModel)]="currentPage" 
-          [itemsPerPage]="numeroPorPagina()">
+          [itemsPerPage]="numeroPorPagina()"
+          [maxSize]="7">
         </pagination>
       </tfoot>
     </table>

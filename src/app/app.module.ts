@@ -4,12 +4,12 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { FormsModule } from "@angular/forms";
 
-import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CabeceraComponent } from './cabecera/cabecera.component';
-import { FiltroComponent } from './filtro/filtro.component';
-import { TablaDatosComponent } from './tabla-datos/tabla-datos.component';
+import { CabeceraComponent } from './components/cabecera/cabecera.component';
+import { FiltroComponent } from './components/filtro/filtro.component';
+import { TablaDatosComponent } from './components/tabla-datos/tabla-datos.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PopoverModule } from 'ngx-bootstrap/popover';
@@ -25,7 +25,6 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
   imports: [
     FormsModule,
     BrowserModule,
-    AppRoutingModule,
     TooltipModule.forRoot(),
     BrowserAnimationsModule,
     BsDatepickerModule.forRoot(),
