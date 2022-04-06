@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Tarea } from './models/tarea.module';
+import { Tarea } from './models/tarea.model';
+
 
 
 @Component({

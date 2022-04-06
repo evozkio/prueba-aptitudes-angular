@@ -1,3 +1,5 @@
+import { Cliente } from './cliente.model';
+
 export class Tarea{
     public id: number;
     public referencia: string;
@@ -8,21 +10,19 @@ export class Tarea{
     public estado: string;
     public fecha: Date;
     public tipo: string;
-    public codigo_cliente: string;
-    public alias_cliente: string
+    public cliente: Cliente;
 
     constructor(json:any){
-        this.id = json.id;
-        this.referencia = json.referencia;
-        this.logo = json.logo;
-        this.usuario = json.usuario;
-        this.observacion = json.observacion;
-        this.cantidad = json.cantidad;
-        this.estado = json.estado;
-        this.fecha = new Date (json.fecha);
-        this.tipo = json.tipo;
-        this.codigo_cliente = json.codigo_cliente;
-        this.alias_cliente = json.alias_cliente;
+        this.id = json.id ?? '';
+        this.referencia = json.referencia ?? '';
+        this.logo = json.logo ?? '';
+        this.usuario = json.usuario ?? '';
+        this.observacion = json.observacion ?? '';
+        this.cantidad = json.cantidad ?? '';
+        this.estado = json.estado ?? '';
+        this.fecha = new Date (json.fecha)?? Date.now();
+        this.tipo = json.tipo ?? '';
+        this.cliente = new Cliente(json.codigo_cliente ?? '', json.alias_cliente ?? '');
     }
 
     calcularHora():string{
@@ -84,7 +84,7 @@ export class Tarea{
     }
 
     calcularAnio():string{
-        let cadena:string = this.fecha.getFullYear()+""; 
+        let cadena:string = this.fecha.getFullYear().toString(); 
         return cadena.slice(2,4);
     }
 
@@ -92,6 +92,6 @@ export class Tarea{
         if (numero <10) {
             return "0"+numero;
         }
-        return ""+numero;
+        return numero.toString();
     }
 }

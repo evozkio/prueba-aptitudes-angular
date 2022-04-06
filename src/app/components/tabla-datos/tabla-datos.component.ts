@@ -1,6 +1,6 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import {faExclamationCircle,faInfoCircle} from '@fortawesome/free-solid-svg-icons'
-import { Tarea } from 'src/app/models/tarea.module';
+import { Tarea } from 'src/app/models/tarea.model';
 
 
 

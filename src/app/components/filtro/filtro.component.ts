@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {faSearch,faTrash} from '@fortawesome/free-solid-svg-icons'
-import { Tarea } from 'src/app/models/tarea.module';
+import { Tarea } from 'src/app/models/tarea.model';
 
 @Component({
   selector: 'app-filtro',
@@ -63,12 +63,12 @@ export class FiltroComponent implements OnInit{
       this.fecha[1].setHours(23,59,59);
     }
     this.filtroProductos= []; 
-    this.productos.forEach((element: any) => {
+    this.productos.forEach((element: Tarea) => {
       let validar = false;
-      if(element.alias_cliente.toLowerCase().indexOf(this.cliente.toLowerCase()) >= 0){
+      if(element.cliente.alias_cliente.toLowerCase().indexOf(this.cliente.toLowerCase()) >= 0){
         if(element.usuario.toLowerCase().indexOf(this.usuario.toLowerCase()) >= 0){
           if(element.referencia.toLowerCase().indexOf(this.referencia.toLowerCase()) >= 0){
-            if(element.tipo.toLowerCase().indexOf(this.tipo.toLowerCase()) >= 0){
+            if(element.tipo.toLowerCase().indexOf(this.tipo.toLowerCase()) >= 0 || this.tipo == 'Todos'){
               if(this.filtrarPorEstado(element.estado.toLowerCase())){
                 if(this.filtrarPorFecha(element.fecha)){
                   this.filtroProductos.push(element);
