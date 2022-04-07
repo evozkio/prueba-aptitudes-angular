@@ -1,9 +1,7 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import {faExclamationCircle,faInfoCircle} from '@fortawesome/free-solid-svg-icons'
 import { Tarea } from 'src/app/models/tarea.model';
-
-
-
+import { TareaService } from 'src/app/service/tarea.model';
 
 @Component({
   selector: 'app-tabla-datos',
@@ -17,10 +15,12 @@ export class TablaDatosComponent implements OnInit{
 
   faExclamationCircle = faExclamationCircle;
   faInfoCircle = faInfoCircle;
-  @Input() currentPage:any;
-  @Input()filtroPadre: Tarea[] = [];
+  filtroPadre: Tarea[] = [];
   cuerpoTabla:any;
   numeroElementos:number = 31;
+
+  constructor(public tareaSvc: TareaService){
+  }
  
   ngOnInit(): void {
     this.recalcularFilas();
@@ -38,12 +38,13 @@ export class TablaDatosComponent implements OnInit{
       alto_div = div_tareas.offsetHeight;
     }
     let num_pag = Math.floor(alto_div/30);
+    console.log(num_pag)
     this.cambiarPaginacion(1, num_pag);
   }
 
   cambiarPaginacion(pag: number, items:number){
     this.numeroElementos = items;
-    setTimeout(() => this.currentPage = pag, 100);
+    setTimeout(() => this.tareaSvc.pagina = pag, 100);
   }
 
   numeroPorPagina():number{

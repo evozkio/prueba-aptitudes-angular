@@ -4,7 +4,6 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { FormsModule } from "@angular/forms";
 
-
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CabeceraComponent } from './components/cabecera/cabecera.component';
@@ -14,6 +13,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PopoverModule } from 'ngx-bootstrap/popover';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { TareaService } from './service/tarea.model';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,7 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
     NgxPaginationModule,
     PaginationModule.forRoot()
   ],
-  providers: [],
+  providers: [TareaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

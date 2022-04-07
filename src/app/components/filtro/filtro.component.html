@@ -32,11 +32,11 @@
             <label>Tipos:</label>
             <div class="contenedor-input input-group">
                 <select class="form-select" [(ngModel)]='tipo'>
-                    <option value="Todos">Todos</option>
+                    <option value="Todos" >Todos</option>
                     <option value="Ruta">Ruta</option>
                     <option value="Mesa">Mesa</option>
                 </select>
-                <button class="btn btn-outline-danger  input-group-append" (click)="tipo = ''"><fa-icon  [icon]="faTrash"></fa-icon></button>
+                <button class="btn btn-outline-danger  input-group-append" (click)="tipo = 'Todos'"><fa-icon  [icon]="faTrash"></fa-icon></button>
             </div>
 
         </div>
